@@ -1,0 +1,25 @@
+{{- if (index .Values "analytics-service").autoscaling.enabled }}
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: analytics-service-hpa
+  namespace: {{ (index .Values "analytics-service").namespace }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: app-analytics-service
+  minReplicas: {{ (index .Values "analytics-service").autoscaling.minReplicas }}
+  maxReplicas: {{ (index .Values "analytics-service").autoscaling.maxReplicas }}
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: {{ (index .Values "analytics-service").autoscaling.cpuTarget }}
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: {{ (index .Values "analytics-service").autoscaling.memoryTarget }}
+{{- end }}
