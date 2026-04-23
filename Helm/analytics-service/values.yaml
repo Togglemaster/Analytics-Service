@@ -35,6 +35,9 @@ analytics-service:
     - secretRef:
         name: analytics-service-config
 
+  ingress:
+    path: /analytics-service(/|$)(.*)
+
   autoscaling:
     enabled: true
     minReplicas: 2
