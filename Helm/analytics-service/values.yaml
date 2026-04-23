@@ -31,9 +31,9 @@ analytics-service:
       failureThreshold: 3
   envFrom:
     - secretRef:
-        name: analytics-service-db-secret
+        name: analytics-service-credentials
     - secretRef:
-        name: analytics-service-db-secret-host
+        name: analytics-service-config
 
   autoscaling:
     enabled: true
