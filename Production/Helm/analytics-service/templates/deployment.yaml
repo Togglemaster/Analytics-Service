@@ -53,7 +53,4 @@ spec:
             timeoutSeconds: 3
             failureThreshold: 3
           envFrom:
-            - secretRef:
-                name: analytics-service-db-secret #Credentials to db login and generics
-            - secretRef:
-                name: analytics-service-db-secret-host #Credential to db login (host)
+            {{- toYaml (index .Values "analytics-service").envFrom | nindent 12 }}
