@@ -1,5 +1,5 @@
-analytics-service:
-  replicaCount: 2
+﻿analytics-service:
+  replicas: 1
   namespace: analytics-service
   image: 778900740186.dkr.ecr.us-east-1.amazonaws.com/analytics-service:production-ea74ad6
   imagePullPolicy: IfNotPresent
@@ -40,7 +40,7 @@ analytics-service:
 
   autoscaling:
     enabled: true
-    minReplicas: 2
+    minReplicas: 1
     maxReplicas: 3
     targetCPUUtilizationPercentage: 80
     targetMemoryUtilizationPercentage: 80
