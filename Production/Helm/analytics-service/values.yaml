@@ -1,7 +1,7 @@
 analytics-service:
   replicas: 1
   namespace: analytics-service
-  image: 778900740186.dkr.ecr.us-east-1.amazonaws.com/analytics-service:production-9f5be6e
+  image: 778900740186.dkr.ecr.us-east-1.amazonaws.com/analytics-service:production-621f8e4
   imagePullPolicy: IfNotPresent
   port: 8005
   imagePullSecrets:
